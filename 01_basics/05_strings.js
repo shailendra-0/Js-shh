@@ -29,7 +29,10 @@ console.log(anotherString);
 const newStringOne=" sdk   "
 console.log(newStringOne);
 console.log(newStringOne.trim());
+//removes spaces frotn and back on line white space and line termintors
 
 
 const url= "http://shailendra.com//s%20cheruku"
 console.log(url.replace('%20','-'));
+
+console.log(url.includes('shaillu'));
