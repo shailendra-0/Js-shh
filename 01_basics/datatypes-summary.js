@@ -42,3 +42,10 @@ const myfun = function(){
 
 console.log(typeof myfun);
 
+
+//stack,heap
+
+// primitive use stack
+
+// heap used by non primitive
+
