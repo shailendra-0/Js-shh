@@ -11,5 +11,3 @@ console.log("test");
 //unreadble code, immature too  dont practrice putting comma
 
 //NESTING
-
-
