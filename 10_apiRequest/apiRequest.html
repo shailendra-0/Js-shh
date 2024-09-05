@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: white;">
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+<div class="card" style="width: 25%
+;height: 30%; border: 10px black;box-shadow: 0 4px 8px 0 ;">
+    <img style="width: 25%;  " src="" alt="">
+    <div class="container" style="padding: 2px 16px;">
+        <h4></h4>
+        <p></p>
+    </div>
+</div>
+
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    let name;
+    let followers;
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            name=data.name;
+            followers=data.followers
+            console.log(typeof data);
+            console.log(data.followers);
+            document.querySelector(".card img").setAttribute("src" , `${data.avatar_url}`);
+document.querySelector("h4").innerHTML = `${data.name} , Followers : ${data.followers}`;
+document.querySelector("h4").style.fontWeight = `bold`;
+document.querySelector("p").innerHTML = `${data.bio}  ${data.blog}`
+            
+        }
+    }
+    xhr.send();
+
+
+
+</script>
+</html>
